@@ -5,9 +5,11 @@
 		<repositoryName>{{ dataProvider.repositoryName }}</repositoryName>
 		<baseURL>{{ url(app.request.attributes.get('_route')) }}</baseURL>
 		<protocolVersion>2.0</protocolVersion>
-		<adminEmail>{{ dataProvider.adminEmail }}</adminEmail>
+		{% for adminEmail in dataProvider.adminEmails %}
+			<adminEmail>{{ adminEmail }}</adminEmail>
+		{% endfor %}
 		<earliestDatestamp>{{ dataProvider.earliestDatestamp|date('Y-m-d') }}</earliestDatestamp>
-		<deletedRecord>no</deletedRecord>
+		<deletedRecord>{{ dataProvider.deletedRecord|default('no') }}</deletedRecord>
 		<granularity>YYYY-MM-DD</granularity>
 	</Identify>
 {% endblock %}
