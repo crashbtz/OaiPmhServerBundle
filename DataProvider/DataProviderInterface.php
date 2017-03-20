@@ -10,9 +10,9 @@ interface DataProviderInterface
     public function getRepositoryName();
 
     /**
-     * @return string Repository admin email
+     * @return array Repository admin emails
      */
-    public function getAdminEmail();
+    public function getAdminEmails();
 
     /**
      * @return \DateTime|string     Repository earliest update change on data
