@@ -1,0 +1,46 @@
+<lom
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://ltsc.ieee.org/xsd/LOM"
+    xmlns:lomfr="http://www.lom-fr.fr/xsd/LOMFR"
+    xmlns:scolomfr="http://www.lom-fr.fr/xsd/SCOLOMFR"
+    xsi:schemaLocation="http://www.lom-fr.fr/scolomfr/outils/xsd/scolomfrv30/scolomfr.xsd"
+>
+    {# 1. General #}
+    {% include '@NaonedOaiPmhServer/oai_scolomfr/general.xml.twig' %}
+    {# 2. Life Cycle #}
+    {% include '@NaonedOaiPmhServer/oai_scolomfr/lifecycle.xml.twig' %}
+    {# 3. Metadata #}
+    {% if record.metaMetadata|default %}
+        {% include '@NaonedOaiPmhServer/oai_scolomfr/metadata.xml.twig' %}
+    {% endif %}
+    {# 4 Technical #}
+    {% include '@NaonedOaiPmhServer/oai_scolomfr/technical.xml.twig' %}
+    {# 5. Educational #}
+    {% if record.educationals|default %}
+        {% for educational in record.educationals %}
+          {% include '@NaonedOaiPmhServer/oai_scolomfr/educational.xml.twig' %}
+        {% endfor %}
+    {% endif %}
+    {# 6. Droits #}
+    {% if record.rights|default %}
+      {% include '@NaonedOaiPmhServer/oai_scolomfr/right.xml.twig' %}
+    {% endif %}
+    {# 7. Relation #}
+    {% if record.relations|default %}
+        {% for relation in record.relations %}
+            {% include '@NaonedOaiPmhServer/oai_scolomfr/relation.xml.twig' %}
+        {% endfor %}
+    {%  endif %}
+    {# 8. Annotation #}
+    {% if record.annotations|default %}
+        {% for annotation in record.annotations %}
+            {% include '@NaonedOaiPmhServer/oai_scolomfr/annotation.xml.twig' %}
+        {% endfor %}
+    {%  endif %}
+    {# 9. Classification #}
+    {% if record.classifications|default %}
+        {% for classification in record.classifications %}
+            {% include '@NaonedOaiPmhServer/oai_scolomfr/classification.xml.twig' %}
+        {% endfor %}
+    {%  endif %}
+</lom>

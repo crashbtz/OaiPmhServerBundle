@@ -1,0 +1,40 @@
+<lifeCycle>
+  {# 2.1 Version #}
+  {% if record.lifeCycle.version|default %}
+    <version>
+      <string language="{{ record.lifeCycle.version.language }}" >{{ record.lifeCycle.version.value }}</string>
+    </version>
+  {% endif %}
+  {# 2.2 State #}
+  {% if record.lifeCycle.status|default %}
+    <status>
+      <source>{{ record.lifeCycle.status.source }}</source>
+      <value>{{ record.lifeCycle.status.source }}</value>
+      <label>{{ record.lifeCycle.status.source }}</label>
+    </status>
+  {% endif %}
+  {# 2.3 Contribution #}
+  {% for contribute in record.lifeCycle.contributes %}
+    <contribute>
+      {# 2.3.1 Role #}
+      <role>
+        <source>{{ contribute.role.source }}</source>
+        <value>{{ contribute.role.value }}</value>
+        <label>{{ contribute.role.label }}</label>
+      </role>
+      {# 2.3.2 Entity #}
+      <entity>{{ contribute.entity }}</entity>
+      {# 2.3.3 Date #}
+      <date>
+        {# 2.3.3.1 Date #}
+        <dateTime>{{ contribute.date.dateTime }}</dateTime>
+        {# 2.3.3.2 Description #}
+        {% if contribute.date.description|default %}
+          <description>
+            <string language="{{ contribute.date.description.language }}" >{{ contribute.date.description.value }}</string>
+          </description>
+        {% endif %}
+      </date>
+    </contribute>
+  {% endfor %}
+</lifeCycle>

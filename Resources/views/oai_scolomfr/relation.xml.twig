@@ -1,0 +1,28 @@
+<relation>
+    {# 7.1 Kind #}
+    {% if relation.kind|default %}
+      <kind>
+        <source>{{ relation.kind.source }}</source>
+        <value>{{ relation.kind.value }}</value>
+        <label>{{ relation.kind.label }}</label>
+      </kind>
+    {%  endif %}
+    {# 7.2 Resource #}
+    {% if relation.resource|default %}
+      <resource>
+          {# 7.2.1 Identifier #}
+          {% for identifier in relation.identifiers %}
+            <identifier>
+              <catalog>{{ identifier.catalog }}</catalog>
+              <entry>{{ identifier.entry }}</entry>
+            </identifier>
+          {%  endfor %}
+          {# 7.2.2 Description #}
+          {% for description in relation.descriptions %}
+            <description>
+              <string language="{{ description.language }}" >{{ description.value }}</string>
+            </description>
+          {%  endfor %}
+      </resource>
+    {%  endif %}
+</relation>

@@ -1,0 +1,102 @@
+<educational>
+  {# 5.2 Learning Resource Type #}
+  {% for learningResourceType in educational.learningResourceTypes %}
+    <learningResourceType>
+      <source>{{ learningResourceType.source }}</source>
+      <value>{{ learningResourceType.value }}</value>
+      <label>{{ learningResourceType.label }}</label>
+    </learningResourceType>
+  {% endfor %}
+  {# 5.5 Public cible #}
+  {% if educational.intendedEndUserRoles|default %}
+    {% for intendedEndUserRole in educational.intendedEndUserRoles %}
+      <intendedEndUserRole>
+        <source>{{ intendedEndUserRole.source }}</source>
+        <value>{{ intendedEndUserRole.value }}</value>
+        <label>{{ intendedEndUserRole.label }}</label>
+      </intendedEndUserRole>
+    {% endfor %}
+  {% endif %}
+  {# 5.6 Level #}
+  {% if educational.contexts|default %}
+    {% for context in educational.contexts %}
+      <context>
+        <source>{{ context.source }}</source>
+        <value>{{ context.value }}</value>
+        <label>{{ context.label }}</label>
+      </context>
+    {% endfor %}
+  {% endif %}
+  {# 5.7 Age #}
+  {% if educational.typicalAgeRanges|default %}
+    {% for typicalAgeRange in educational.typicalAgeRanges %}
+      <typicalAgeRange><string language="{{ typicalAgeRange.language }}">{{ typicalAgeRange.value }}</string></typicalAgeRange>
+    {% endfor %}
+  {% endif %}
+  {# 5.8 Difficulty #}
+  {% if educational.difficulty|default %}
+    <difficulty>
+      <source>{{ educational.difficulty.source }}</source>
+      <value>{{ educational.difficulty.value }}</value>
+      <label>{{ educational.difficulty.label }}</label>
+    </difficulty>
+  {% endif %}
+  {# 5.9 Learning Time #}
+  {% if educational.typicalLearningTime|default %}
+    <typicalLearningTime>{{ educational.typicalLearningTime }}</typicalLearningTime>
+  {% endif %}
+  {# 5.10 Utilisation example #}
+  {% if educational.descriptions|default %}
+    {% for description in educational.descriptions %}
+      <description>
+        <string language="{{ description.language }}" >{{ description.value }}</string>
+      </description>
+    {% endfor %}
+  {% endif %}
+  {# 5.11 User Language #}
+  {% if educational.languages|default %}
+    {% for language in educational.languages %}
+      <language>{{ language }}</language>
+    {% endfor %}
+  {% endif %}
+  {# 5.12 Activity #}
+  {% if educational.activities|default %}
+    {% for activity in educational.activities %}
+      <lomfr:activity>
+        <lomfr:source>{{ activity.source }}</lomfr:source>
+        <lomfr:value>{{ activity.value }}</lomfr:value>
+        <label>{{ activity.label }}</label>
+      </lomfr:activity>
+    {% endfor %}
+  {% endif %}
+  {# 5.14 Place #}
+  {% if educational.places|default %}
+    {% for place in educational.places %}
+      <scolomfr:place>
+        <scolomfr:source>{{ place.source }}</scolomfr:source>
+        <scolomfr:value>{{ place.value }}</scolomfr:value>
+        <label>{{ place.label }}</label>
+      </scolomfr:place>
+    {% endfor %}
+  {% endif %}
+  {# 5.15 Educational Method #}
+  {% if educational.educationalMethods|default %}
+    {% for educationalMethod in educational.educationalMethods %}
+      <scolomfr:educationalMethod>
+        <scolomfr:source>{{ educationalMethod.source }}</scolomfr:source>
+        <scolomfr:value>{{ educationalMethod.value }}</scolomfr:value>
+        <scolomfr:label>{{ educationalMethod.label }}</scolomfr:label>
+      </scolomfr:educationalMethod>
+    {% endfor %}
+  {% endif %}
+  {# 5.16 Tools #}
+  {% if educational.tools|default %}
+    {% for tool in educational.tools %}
+      <scolomfr:tool>
+        <scolomfr:source>{{ tool.source }}</scolomfr:source>
+        <scolomfr:value>{{ tool.value }}</scolomfr:value>
+        <scolomfr:label>{{ tool.label }}</scolomfr:label>
+      </scolomfr:tool>
+    {% endfor %}
+  {% endif %}
+</educational>

@@ -1,0 +1,75 @@
+<general>
+  {# 1.1 Identifier #}
+  {% for identifier in record.general.identifiers %}
+    <identifier>
+      {# 1.1.1 Catalog #}
+      <catalog>{{ identifier.catalog }}</catalog>
+      {# 1.1.2 Entry #}
+      <entry>{{ identifier.entry }}</entry>
+    </identifier>
+  {% endfor %}
+  {# 1.2 Title #}
+  <title><string language="fre">{{ record.general.title }}</string></title>
+  {# 1.3 Language #}
+  {% for language in record.general.languages %}
+    <language>{{ language }}</language>
+  {% endfor %}
+  {# 1.4 Description #}
+  {% for description in record.general.descriptions %}
+    <description>
+      <string language="{{ description.language }}">{{ description.value }}</string>
+    </description>
+  {% endfor %}
+  {# 1.5 Keywords #}
+  {% if record.general.keywords|default %}
+    {% for keyword in record.general.keywords %}
+      <keyword>
+        <string language="{{ keyword.language }}">{{ keyword.value }}</string>
+      </keyword>
+    {% endfor %}
+  {% endif %}
+  {# 1.6 Coverage #}
+  {% if record.general.coverages|default %}
+    {% for coverage in record.general.coverages %}
+      <coverage>
+        <string language="{{ coverage.language }}" >{{ coverage.value }}</string>
+      </coverage>
+    {% endfor %}
+  {% endif %}
+  {# 1.7 Structure #}
+  {% if record.general.structure|default %}
+    <structure>
+      <source>{{ record.general.structure.source }}</source>
+      <value>{{ record.general.structure.value }}</value>
+      <label>{{ record.general.structure.label }}</label>
+    </structure>
+  {% endif %}
+  {# 1.8 Aggregation Level #}
+  {% if record.general.aggregationLevel|default %}
+    <aggregationLevel>
+      <source>{{ record.general.aggregationLevel.source }}</source>
+      <value>{{ record.general.aggregationLevel.value }}</value>
+      <label>{{ record.general.aggregationLevel.label }}</label>
+    </aggregationLevel>
+  {% endif %}
+  {# 1.9 Document Type #}
+  {% if record.general.documentTypes|default %}
+    {% for documentType in record.general.documentTypes %}
+      <lomfr:documentType>
+        <lomfr:source>{{ documentType.source }}</lomfr:source>
+        <lomfr:value>{{ documentType.value }}</lomfr:value>
+        <lomfr:label>{{ documentType.label }}</lomfr:label>
+      </lomfr:documentType>
+    {% endfor %}
+  {% endif %}
+  {# 1.10 Typologie générale de documents #}
+  {% if record.general.generalResourceTypes|default %}
+    {% for generalResourceType in record.general.generalResourceTypes %}
+      <scolomfr:generalResourceType>
+        <scolomfr:source>{{ generalResourceType.source }}</scolomfr:source>
+        <scolomfr:value>{{ generalResourceType.value }}</scolomfr:value>
+        <scolomfr:label>{{ generalResourceType.label }}</scolomfr:label>
+      </scolomfr:generalResourceType>
+    {% endfor %}
+  {% endif %}
+</general>

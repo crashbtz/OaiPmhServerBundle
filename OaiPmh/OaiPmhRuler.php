@@ -22,6 +22,10 @@ class OaiPmhRuler
         'oai_dc' => array(
            'schema'            => 'http://www.openarchives.org/OAI/2.0/oai_dc.xsd',
            'metadataNamespace' => 'http://www.openarchives.org/OAI/2.0/oai_dc/',
+        ),
+        'oai_scolomfr' => array(
+           'schema'            => 'http://www.lom-fr.fr/scolomfr/outils/xsd/scolomfrv31/scolomfr.xsd',
+           'metadataNamespace' => 'http://www.lom-fr.fr/scolomfr/outils/xsd/scolomfrv31/',
         )
     );
 

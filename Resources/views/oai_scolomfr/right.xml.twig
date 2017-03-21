@@ -1,0 +1,21 @@
+<rights>
+    {% if record.rights.cost|default %}
+      <cost>
+        <source>{{ record.rights.cost.source }}</source>
+        <value>{{ record.rights.cost.value }}</value>
+        <label>{{ record.rights.cost.label }}</label>
+      </cost>
+    {% endif %}
+    {% if record.rights.copyrightAndOtherRestrictions|default %}
+      <copyrightAndOtherRestrictions>
+        <source>{{ record.rights.copyrightAndOtherRestrictions.source }}</source>
+        <value>{{ record.rights.copyrightAndOtherRestrictions.value }}</value>
+        <label>{{ record.rights.copyrightAndOtherRestrictions.label }}</label>
+      </copyrightAndOtherRestrictions>
+    {% endif %}
+    {% if record.rights.description|default %}
+      <description>
+        <string language="{{ record.rights.description.language }}" >{{ record.rights.description.value }}</string>
+      </description>
+    {% endif %}
+</rights>
