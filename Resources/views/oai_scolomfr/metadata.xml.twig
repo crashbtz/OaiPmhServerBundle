@@ -1,0 +1,59 @@
+<metaMetadata>
+  {# 3.1 Identifier #}
+  {% if record.metaMetadata.identifiers|default %}
+    {% for identifier in record.metaMetadata.identifiers %}
+      <identifier>
+        {# 3.1.1 Catalog #}
+        <catalog>{{ identifier.catalog }}</catalog>
+        {# 3.1.2 Entry #}
+        <entry>{{ identifier.entry }}</entry>
+      </identifier>
+    {% endfor %}
+  {% endif %}
+  {# 3.2 Contribution #}
+  {% if record.metaMetadata.contributes|default %}
+    {% for contribute in record.metaMetadata.contributes %}
+      <contribute>
+        {# 3.2.1 Role #}
+        {% if contribute.role|default %}
+          <role>
+            <source>{{ contribute.role.source }}</source>
+            <value>{{ contribute.role.value }}</value>
+            <label>{{ contribute.role.label }}</label>
+          </role>
+        {% endif %}
+        {# 3.2.2 Entity #}
+        {% if contribute.entity|default %}
+          <entity>{{ contribute.entity }}</entity>
+        {% endif %}
+        {# 3.2.3 Date #}
+        {% if contribute.date|default %}
+          <date>
+            {# 3.2.3.1 Date #}
+            <dateTime>{{ contribute.date.dateTime }}</dateTime>
+            {# 3.2.3.2 Description #}
+            {% if contribute.date.description|default %}
+              <description>
+                <string language="{{ contribute.date.description.language }}" >{{ contribute.date.description.value }}</string>
+              </description>
+            {% endif %}
+          </date>
+        {% endif %}
+      </contribute>
+    {% endfor %}
+  {% endif %}
+  {# 3.3 Metadata Schema #}
+  {% if record.metaMetadata.metadataSchemas|default %}
+    {% for metadataSchema in record.metaMetadata.metadataSchemas %}
+      <metadataSchema>{{ metadataSchema }}</metadataSchema>
+    {% endfor %}
+  {% endif %}
+  {# 3.4 - Language #}
+  {% if record.metaMetadata.language|default %}
+    <language>
+      <source>{{ record.metaMetadata.language.source }}</source>
+      <value>{{ record.metaMetadata.language.value }}</value>
+      <label>{{ record.metaMetadata.language.label }}</label>
+    </language>
+  {% endif %}
+</metaMetadata>

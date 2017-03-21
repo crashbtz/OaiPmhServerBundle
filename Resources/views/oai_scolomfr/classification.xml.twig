@@ -1,0 +1,38 @@
+<classification>
+    {# 9.1 Purpose #}
+    {% if classification.purpose|default %}
+        <purpose>
+            <source>{{ classification.purpose.source }}</source>
+            <value>{{ classification.purpose.value }}</value>
+            <label>{{ classification.purpose.label }}</label>
+        </purpose>
+    {%  endif %}
+    {# 9.2 Taxons Path #}
+    {% if classification.taxonPaths|default %}
+        {% for taxonPath in classification.taxonPaths %}
+            <taxonPath>
+                {# 9.2.1 Source #}
+                {% if taxonPath.source|default %}
+                    <source>
+                        <string>{{ taxonPath.source }}</string>
+                    </source>
+                {% endif %}
+                {# 9.3 Description #}
+                {% if taxonPath.description|default %}
+                    <description>
+                        <string>{{ taxonPath.description }}</string>
+                    </description>
+                {% endif %}
+                {# 9.2.2 Taxon #}
+                {% if taxonPath.taxons|default %}
+                    {% for taxon in taxonPath.taxons %}
+                        <taxon>
+                            <id>{{ taxon.id }}</id>
+                            <entry><string>{{ taxon.entry }}</string></entry>
+                        </taxon>
+                    {% endfor %}
+                {% endif %}
+            </taxonPath>
+        {% endfor %}
+    {% endif %}
+</classification>
