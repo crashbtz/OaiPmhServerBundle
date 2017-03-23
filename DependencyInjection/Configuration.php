@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoned\OaiPmhServerBundle\DependencyInjection;
+namespace Ftven\Bundle\OaiPmhServerBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -13,12 +13,12 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('naoned_oai_pmh_server');
+        $rootNode = $treeBuilder->root('ftven_oai_pmh_server');
 
         $rootNode
             ->children()
                 ->scalarNode('data_provider_service_name')
-                    ->defaultValue('naoned.oaipmh.data_provider')
+                    ->defaultValue('ftven.oaipmh.data_provider')
                 ->end()
                 ->scalarNode('count_per_load')
                     ->defaultValue(50)

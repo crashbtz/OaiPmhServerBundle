@@ -1,14 +1,19 @@
 {
-    "name": "crashbtz/oai-pmh-server-bundle",
+    "name": "ftven/oai-pmh-server-bundle",
     "description": "Bundle for Symfony2 that provides an Oai-Pmh server for your data",
     "keywords": ["oai-pmh", "oaipmh"],
     "license": "MIT",
     "type": "bundle",
-    "authors": [{"name": "vibby", "email": "vbeauvivre@naoned.fr"}],
+    "authors": [
+        {
+            "name": "Cedric Moncade",
+            "email": "cedric.moncade@gmail.com",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
-        "psr-0": {"Naoned\\OaiPmhServerBundle\\": ""}
+        "psr-4": {"Ftven\\Bundle\\OaiPmhServerBundle\\": ""}
     },
-    "target-dir" : "Naoned/OaiPmhServerBundle",
     "require": {
         "php": ">=5.4|~7.0",
         "symfony/symfony": "~2.7|~3.0",

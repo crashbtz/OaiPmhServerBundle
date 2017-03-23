@@ -1,8 +1,8 @@
 <?php
 
-namespace Naoned\OaiPmhServerBundle\Tests\OaiPmh;
+namespace Ftven\Bundle\OaiPmhServerBundle\Tests\OaiPmh;
 
-use Naoned\OaiPmhServerBundle\OaiPmh\OaiPmhRuler;
+use Ftven\Bundle\OaiPmhServerBundle\OaiPmh\OaiPmhRuler;
 
 class OaiPmhRulerTests extends \PHPUnit_Framework_TestCase
 {
@@ -17,7 +17,7 @@ class OaiPmhRulerTests extends \PHPUnit_Framework_TestCase
         );
         $this->assertEquals($args, array('req' => 1));
 
-        $this->setExpectedException('Naoned\OaiPmhServerBundle\Exception\BadArgumentException');
+        $this->setExpectedException('Ftven\Bundle\OaiPmhServerBundle\Exception\BadArgumentException');
         $ruler->retrieveAndCheckArguments(
             array('opt' => 1),
             array('req')
@@ -60,7 +60,7 @@ class OaiPmhRulerTests extends \PHPUnit_Framework_TestCase
         );
         $this->assertEquals($args, array('exclusive' => 1));
 
-        $this->setExpectedException('Naoned\OaiPmhServerBundle\Exception\BadArgumentException');
+        $this->setExpectedException('Ftven\Bundle\OaiPmhServerBundle\Exception\BadArgumentException');
         $ruler->retrieveAndCheckArguments(
             array('exclusive' => 1, 'other' => 1),
             array(),
@@ -74,7 +74,7 @@ class OaiPmhRulerTests extends \PHPUnit_Framework_TestCase
     {
         $ruler = new OaiPmhRuler();
 
-        $this->setExpectedException('Naoned\OaiPmhServerBundle\Exception\BadArgumentException');
+        $this->setExpectedException('Ftven\Bundle\OaiPmhServerBundle\Exception\BadArgumentException');
         $ruler->retrieveAndCheckArguments(
             array('unexpected' => 1)
         );
@@ -85,10 +85,10 @@ class OaiPmhRulerTests extends \PHPUnit_Framework_TestCase
     {
         $ruler = new OaiPmhRuler();
 
-        $this->setExpectedException('Naoned\OaiPmhServerBundle\Exception\BadArgumentException');
+        $this->setExpectedException('Ftven\Bundle\OaiPmhServerBundle\Exception\BadArgumentException');
         $ruler->checkParamsUnicity('param1=1&parma1=2');
 
-        $this->setExpectedException('Naoned\OaiPmhServerBundle\Exception\BadArgumentException');
+        $this->setExpectedException('Ftven\Bundle\OaiPmhServerBundle\Exception\BadArgumentException');
         $ruler->checkParamsUnicity('param1&param1');
 
         $return = $ruler->checkParamsUnicity('');

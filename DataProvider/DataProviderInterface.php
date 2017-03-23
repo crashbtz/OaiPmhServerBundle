@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoned\OaiPmhServerBundle\DataProvider;
+namespace Ftven\Bundle\OaiPmhServerBundle\DataProvider;
 
 interface DataProviderInterface
 {

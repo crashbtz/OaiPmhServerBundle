@@ -1,6 +1,6 @@
-naoned_oaipmh:
+ftven_oaipmh:
     path: ''
     defaults:
-        _controller: NaonedOaiPmhServerBundle:Main:Index
+        _controller: FtvenOaiPmhServerBundle:Main:Index
         _format: xml
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace Naoned\OaiPmhServerBundle\OaiPmh;
+namespace Ftven\Bundle\OaiPmhServerBundle\OaiPmh;
 
-use Naoned\OaiPmhServerBundle\Exception\OaiPmhServerException;
-use Naoned\OaiPmhServerBundle\Exception\BadArgumentException;
-use Naoned\OaiPmhServerBundle\Exception\BadVerbException;
-use Naoned\OaiPmhServerBundle\Exception\BadResumptionTokenException;
-use Naoned\OaiPmhServerBundle\Exception\CannotDisseminateFormatException;
+use Ftven\Bundle\OaiPmhServerBundle\Exception\OaiPmhServerException;
+use Ftven\Bundle\OaiPmhServerBundle\Exception\BadArgumentException;
+use Ftven\Bundle\OaiPmhServerBundle\Exception\BadVerbException;
+use Ftven\Bundle\OaiPmhServerBundle\Exception\BadResumptionTokenException;
+use Ftven\Bundle\OaiPmhServerBundle\Exception\CannotDisseminateFormatException;
 
 // Unsused for now since we assume all record are available in oAI_DC format
-use Naoned\OaiPmhServerBundle\Exception\IdDoesNotExistException;
+use Ftven\Bundle\OaiPmhServerBundle\Exception\IdDoesNotExistException;
 
 class OaiPmhRuler
 {

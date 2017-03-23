@@ -1,4 +1,4 @@
-{% extends 'NaonedOaiPmhServerBundle::template.xml.twig' %}
+{% extends 'FtvenOaiPmhServerBundle::template.xml.twig' %}
 
 {% block content %}
   <ListSets>
@@ -9,6 +9,6 @@
         <setName>{{ oaiSet.name }}</setName>
       </set>
     {% endfor %}
-    {% include 'NaonedOaiPmhServerBundle::resumptionToken.xml.twig' %}
+    {% include 'FtvenOaiPmhServerBundle::resumptionToken.xml.twig' %}
   </ListSets>
 {% endblock %}

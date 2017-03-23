@@ -1,8 +1,8 @@
 <?php
 
-namespace Naoned\OaiPmhServerBundle\Twig;
+namespace Ftven\Bundle\OaiPmhServerBundle\Twig;
 
-use Naoned\OaiPmhServerBundle\DataProvider\DataProviderInterface;
+use Ftven\Bundle\OaiPmhServerBundle\DataProvider\DataProviderInterface;
 
 class RecordExtension extends \Twig_Extension
 {

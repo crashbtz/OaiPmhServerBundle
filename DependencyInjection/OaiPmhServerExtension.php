@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoned\OaiPmhServerBundle\DependencyInjection;
+namespace Ftven\Bundle\OaiPmhServerBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -13,18 +13,13 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class NaonedOaiPmhServerExtension extends Extension
+class OaiPmhServerExtension extends Extension
 {
     /**
      * {@inheritDoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-
-        $configuration = new Configuration();
-        // TODO, instad of beyond lines
-        // $config = $this->processConfiguration($configuration, $configs);
-
         $config = array();
         foreach ($configs as $subConfig) {
             $config = array_merge($config, $subConfig);
@@ -38,12 +33,12 @@ class NaonedOaiPmhServerExtension extends Extension
         }
 
         $container->setParameter(
-            'naoned.oaipmh_server.data_provider_service_name',
+            'ftven.oaipmh_server.data_provider_service_name',
             $config['data_provider_service_name']
         );
 
         $container->setParameter(
-            'naoned.oaipmh_server.count_per_load',
+            'ftven.oaipmh_server.count_per_load',
             isset($config['count_per_load']) ? $config['count_per_load'] : 50
         );
     }

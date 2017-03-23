@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoned\OaiPmhServerBundle\Tests\Controller;
+namespace Ftven\Bundle\OaiPmhServerBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoned\OaiPmhServerBundle\Exception;
+namespace Ftven\Bundle\OaiPmhServerBundle\Exception;
 
 use Symfony\Component\DependencyInjection\Exception\ExceptionInterface;
 

@@ -24,7 +24,7 @@ Require the `naoned/OaiPmhServer` package in your composer.json and update your 
 
     $ composer require naoned/OaiPmhServer:*
 
-Add the NaonedOaiPmhServerBundle to your application's kernel:
+Add the FtvenOaiPmhServerBundle to your application's kernel:
 
 ```php
     public function registerBundles()
